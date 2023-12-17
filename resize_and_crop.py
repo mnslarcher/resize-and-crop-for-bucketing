@@ -50,7 +50,7 @@ def resize_and_crop_images(input_dir, output_dir, bucket_resolutions):
     Args:
         input_dir (str): Path to the directory containing input images.
         output_dir (str): Path to the directory where resized and cropped images will be saved.
-        bucket_resolutions (list of tuples): List of resolution buckets to apply to the images.
+        bucket_resolutions (list of tuples): A sorted list of tuples, each containing (aspect_ratio, width, height).
 
     Returns:
         None: The function saves the processed images to the output directory and does not return a value.
@@ -118,7 +118,7 @@ def resize_and_crop_images(input_dir, output_dir, bucket_resolutions):
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Resize and crop images based on generated aspect ratio buckets."
+        description="Resize and crop images based on generated bucket resolutions."
     )
 
     # Arguments for make_bucket_resolutions function
