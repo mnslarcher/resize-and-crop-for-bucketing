@@ -161,10 +161,8 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
 
-    # Convert buckets string to list of tuples
     bucket_resolutions = make_bucket_resolutions(
         args.max_sqrt_area, args.min_size, args.max_size, args.divisible_by
     )
 
-    # Call the function with parsed arguments
     resize_and_crop_images(args.input_dir, args.output_dir, bucket_resolutions)
