@@ -88,7 +88,7 @@ def resize_and_crop_images(input_dir, output_dir, bucket_resolutions):
             if closest_aspect_ratio > aspect_ratio:
                 # Resize the image so width matches target_width
                 new_width = target_width
-                new_height = int(new_width / closest_aspect_ratio)
+                new_height = math.ceil(height * new_width / width)
                 image = image.resize((new_width, new_height), Image.LANCZOS)
 
                 # Crop the image so that height matches target_height
@@ -99,7 +99,7 @@ def resize_and_crop_images(input_dir, output_dir, bucket_resolutions):
             else:
                 # Resize the image so height matches target_height
                 new_height = target_height
-                new_width = int(new_height * closest_aspect_ratio)
+                new_width = math.ceil(width * new_height / height)
                 image = image.resize((new_width, new_height), Image.LANCZOS)
 
                 # Crop the image so that width matches target_width
